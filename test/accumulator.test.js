@@ -7,13 +7,13 @@ describe("accumulator.countBlocks", async () => {
     "~/.dingocoin/.cookie".replace("~", os.homedir)
   );
 
-  it("Should iterate blocks", async () => {
+  it("Should start iterate blocks", () => {
     const acc = new dingo.Accumulator(rpc, 0, 1, (h, b) => {
       if (h % 1000 === 0) {
         console.log(h);
         console.log(JSON.stringify(b));
       }
     });
-    await acc.start();
+    acc.start();
   });
 });
